@@ -1,0 +1,2 @@
+export const BaseUrl = 'https://message-mauve-zeta.vercel.app/';
+// export const BaseUrl = 'http://localhost:8000/chat/chatroom/';
