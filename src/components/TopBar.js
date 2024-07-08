@@ -19,6 +19,7 @@ function TopBar() {
           >
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/chatroom">Chat Room</Nav.Link>
+            <Nav.Link href="/number-sum">Number Sum</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
