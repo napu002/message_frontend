@@ -1,5 +1,4 @@
 import React from 'react';
-import NumberSumUp from "./NumberSumUp";
 
 function Home(props) {
     return (
