@@ -20,13 +20,15 @@ function NumberSumUp(props) {
             "start_num": Number(startNum),
             "end_num": Number(endNum)
         });
+        console.log(localStorage.getItem('accessToken'));
 
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
             url: BaseUrl + 'chat/sum_numbers/',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+localStorage.getItem('accessToken')
             },
             data: data
         };

@@ -29,11 +29,13 @@ function Login(props) {
           },
           data : data
         };
+        console.log(localStorage.getItem('accessToken'));
 
         axios.request(config)
         .then((response) => {
           console.log(JSON.stringify(response.data));
-          setLogin_status("Login Successful!")
+          setLogin_status("Login Successful!");
+          localStorage.setItem('accessToken', response.data.token);
         })
         .catch((error) => {
           console.log(error);
