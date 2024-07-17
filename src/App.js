@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import ChatRoom from "./components/ChatRoom";
 import NumberSumUp from "./components/NumberSumUp";
 import Login from "./components/Login";
+import Register from "./components/Register";
+import CreateChatroom from "./components/CreateChatroom";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
             <Route path="/chatroom" element={<ChatRoom />} />
             <Route path="/number-sum" element={<NumberSumUp />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/create-chatroom" element={<CreateChatroom />} />
         </Routes>
     </div>
   );
