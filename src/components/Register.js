@@ -5,7 +5,7 @@ import {BaseUrl} from "../constants";
 function Register(props) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [password2, setPassword2] = useState("")
+    const [password_confirm, setPassword_confirm] = useState("")
     const [register_status, setRegister_status] = useState("")
 
     function usernameHandler(e) {
@@ -15,15 +15,15 @@ function Register(props) {
         setPassword(e.target.value)
     }
 
-    function password2Handler(e) {
-        setPassword2(e.target.value)
+    function password_confirmHandler(e) {
+        setPassword_confirm(e.target.value)
     }
 
     function register() {
         let data = JSON.stringify({
             "username": username,
             "password": password,
-            "password_confirm": password2,
+            "password_confirm": password_confirm,
         });
 
         let config = {
@@ -40,26 +40,36 @@ function Register(props) {
         axios.request(config)
         .then((response) => {
           console.log(JSON.stringify(response.data));
-          setRegister_status("Registration Successful! Please login.");
+          setRegister_status("Success!");
           // localStorage.setItem('accessToken', response.data.token);
         })
         .catch((error) => {
           console.log(error);
 
-          setRegister_status("Sorry! Registration failed. Please try again.");
+          setRegister_status("Error!");
         });
 
     }
     return (
         <div>
             <h1>Register Page</h1>
-            <p>Username: <input id={"username"} type={"text"} onChange={usernameHandler}/></p>
-            <p>Password: <input id={"password"} type={"password"} onChange={passwordHandler}/></p>
-            <p>Confirm Password: <input id={"password2"} type={"password"} onChange={password2Handler}/></p>
-            <p>
-                <button id={"registerbtn"} onClick={register}>Register</button>
+            <table className="m-auto">
+                <tr>
+                    <td className={'text-end'}>Username: </td><td><input id={"username"} type={"text"} onChange={usernameHandler}/></td>
+                </tr>
+                <tr>
+                    <td className={'text-end'}>Password: </td><td><input id={"password"} type={"password"} onChange={passwordHandler}/></td>
+                </tr>
+                <tr>
+                    <td className={'text-end'}>Confirm Password: </td><td><input id={"password_confirm"} type={"password"} onChange={password_confirmHandler}/>
+                    </td>
+                </tr>
+
+            </table>
+            <p className={'mt-2'}>
+                <button id={"register_btn"} onClick={register}>Register</button>
             </p>
-            <p id={"login_status"}>{register_status}</p>
+            <p id={"registration_status"}>{register_status}</p>
         </div>
     );
 }
