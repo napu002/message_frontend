@@ -6,7 +6,7 @@ function Register(props) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [password2, setPassword2] = useState("")
-    const [register_status, setRegister_status] = useState("")
+    const [rstatus, setRstatus] = useState("")
 
     function usernameHandler(e) {
         setUsername(e.target.value)
@@ -40,13 +40,13 @@ function Register(props) {
         axios.request(config)
         .then((response) => {
           console.log(JSON.stringify(response.data));
-          setRegister_status("Registration Successful! Please login.");
+          setRstatus("Success");
           // localStorage.setItem('accessToken', response.data.token);
         })
         .catch((error) => {
           console.log(error);
 
-          setRegister_status("Sorry! Registration failed. Please try again.");
+          setRstatus("Error");
         });
 
     }
@@ -59,7 +59,7 @@ function Register(props) {
             <p>
                 <button id={"registerbtn"} onClick={register}>Register</button>
             </p>
-            <p id={"login_status"}>{register_status}</p>
+            <p id={"login_status"}>{rstatus}</p>
         </div>
     );
 }
