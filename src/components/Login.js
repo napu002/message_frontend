@@ -4,20 +4,20 @@ import {BaseUrl} from "../constants";
 
 function Login(props) {
     const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
+    const [pwd, setPwd] = useState("")
     const [login_status, setLogin_status] = useState("")
 
     function usernameHandler(e) {
         setUsername(e.target.value)
     }
     function passwordHandler(e) {
-        setPassword(e.target.value)
+        setPwd(e.target.value)
     }
 
     function login() {
         let data = JSON.stringify({
           "username": username,
-          "password": password
+          "password": pwd
         });
 
         let config = {
@@ -34,12 +34,12 @@ function Login(props) {
         axios.request(config)
         .then((response) => {
           console.log(JSON.stringify(response.data));
-          setLogin_status("Login Successful!");
+          setLogin_status(" Successful!");
           localStorage.setItem('accessToken', response.data.token);
         })
         .catch((error) => {
           console.log(error);
-          setLogin_status("Username or password is incorrect!")
+          setLogin_status("Error!")
         });
 
     }
