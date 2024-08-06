@@ -20,6 +20,7 @@ function TopBar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/chatroom">Chat Room</Nav.Link>
             <Nav.Link href="/number-sum">Number Sum</Nav.Link>
+            <Nav.Link href="/number-product">Number Product</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/register">Register</Nav.Link>
             <Nav.Link href="/create-chatroom">Create Chatroom</Nav.Link>

@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router";
 import Home from "./components/Home";
 import ChatRoom from "./components/ChatRoom";
 import NumberSumUp from "./components/NumberSumUp";
+import NumberProduct from "./components/NumberProduct";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import CreateChatroom from "./components/CreateChatroom";
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/chatroom" element={<ChatRoom />} />
             <Route path="/number-sum" element={<NumberSumUp />} />
+            <Route path="/number-product" element={<NumberProduct />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/create-chatroom" element={<CreateChatroom />} />
