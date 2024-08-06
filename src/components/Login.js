@@ -54,8 +54,7 @@ function Login(props) {
                     <td className={'text-end'}>Password: </td><td><input id={"password"} type={"password"} onChange={passwordHandler}/></td>
                 </tr>
             </table>
-                <p>Username: <input id={"username"} type={"text"} onChange={usernameHandler}/></p>
-                <p>Password: <input id={"password"} type={"password"} onChange={passwordHandler}/></p>
+
                 <p className={'mt-2'}>
                     <button id={"loginbtn"} onClick={login}>Login</button>
                 </p>
