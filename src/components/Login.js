@@ -4,20 +4,20 @@ import {BaseUrl} from "../constants";
 
 function Login(props) {
     const [username, setUsername] = useState("")
-    const [pwd, setPwd] = useState("")
+    const [password, setPassword] = useState("")
     const [login_status, setLogin_status] = useState("")
 
     function usernameHandler(e) {
         setUsername(e.target.value)
     }
     function passwordHandler(e) {
-        setPwd(e.target.value)
+        setPassword(e.target.value)
     }
 
     function login() {
         let data = JSON.stringify({
           "username": username,
-          "password": pwd
+          "password": password
         });
 
         let config = {
@@ -34,26 +34,34 @@ function Login(props) {
         axios.request(config)
         .then((response) => {
           console.log(JSON.stringify(response.data));
-          setLogin_status(" Successful!");
+          setLogin_status(" Login Successful!");
           localStorage.setItem('accessToken', response.data.token);
         })
         .catch((error) => {
           console.log(error);
-          setLogin_status("Error!")
+          setLogin_status("Sorry! Username/Password incorrect. Please try again.")
         });
 
     }
     return (
         <div>
             <h1>Login Page</h1>
-            <p>Username: <input id={"username"} type={"text"} onChange={usernameHandler}/></p>
-            <p>Password: <input id={"password"} type={"password"} onChange={passwordHandler}/></p>
-            <p>
-                <button id={"loginbtn"} onClick={login}>Login</button>
-            </p>
-            <p id={"login_status"}>{login_status}</p>
+            <table className="m-auto">
+                <tr>
+                    <td className={'text-end'}>Username: </td><td><input id={"username"} type={"text"} onChange={usernameHandler}/></td>
+                </tr>
+                <tr>
+                    <td className={'text-end'}>Password: </td><td><input id={"password"} type={"password"} onChange={passwordHandler}/></td>
+                </tr>
+            </table>
+                <p>Username: <input id={"username"} type={"text"} onChange={usernameHandler}/></p>
+                <p>Password: <input id={"password"} type={"password"} onChange={passwordHandler}/></p>
+                <p className={'mt-2'}>
+                    <button id={"loginbtn"} onClick={login}>Login</button>
+                </p>
+                <p id={"login_status"}>{login_status}</p>
         </div>
-    );
+);
 }
 
 export default Login;
